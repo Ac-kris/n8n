@@ -1,19 +1,17 @@
 {
-  "buildCommand": "bash ./vercel-build.sh",
   "builds": [
     {
-      "src": "packages/cli/bin/n8n",
-      "use": "@vercel/node"
+      "src": "Dockerfile",
+      "use": "@vercel/docker"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "packages/cli/bin/n8n"
+      "dest": "/"
     }
   ],
   "env": {
-    "DB_TYPE": "postgresdb",
     "DB_POSTGRESDB_HOST": "你的PostgreSQL主机地址",
     "DB_POSTGRESDB_PORT": "5432",
     "DB_POSTGRESDB_DATABASE": "n8n",
